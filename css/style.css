@@ -1,0 +1,701 @@
+/* Если подключаем normalize.css то обнуление стилей не нужно */
+
+
+
+/* ОБНУЛЯЕМ СТИЛИ */
+/* Обнуляем стили
+/* "*"-Звездочка это селектор который обращается ко всем (и каждому) тегам*/
+/* У некоторых тегов прописаны стили по умолчанию И эти стили 
+разные в разных браузерах */
+/* Обнуляем все отступы и границы */
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+/* Пересчет ШИРИНЫ контентной области
+Изменим алгоритм расчета ширины и высоты блоков 
+через свойство box-sizing Оно применяется для 
+изменения алгоритма расчета ширины и высоты элемента. 
+Чтобы свойства with и height задавали размеры не 
+СОДЕРЖИМОГО а размеры самого БЛОКА (чтобы не было погрешностей на отступы и границы)
+Т.е. если задать ширину блока 400px она будет такой (включая все ОТСТУПЫ и ГРАНИЦЫ)*/
+*,
+*::after *::before {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* Убрать линию обводки которая есть у некоторых браузеров */
+:focus,
+:active {
+  outline: none;
+}
+a:focus,
+a:active {
+  outline: none
+}
+/* Устанавливаем (для некоторых браузеров) значение display: block для некоторых тегов 
+что делает их блочными 
+Это означает что эти теги будут отображаться один под другим*/
+nav,
+footer,
+head,
+aside {
+  display: block;
+}
+/* Уравниваем отображение шрифтов в разных браузеров для тегов html и body
+Теперь шрифты не будут самостоятельно увеличиваться (например на айфонах)*/
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+
+
+/* ОБЩИЕ СТИЛИ ДЛЯ ВСЕХ БЛОКОВ */
+/* Создаем ПЛАВНЫЙ переход на иную область страницы (наприме при помощи якря) используя свойство  scroll-behavior: smooth;   */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Задаем свойства для большинства элементов макета 
+  (смотрим эти свойства на МАКЕТЕ) 
+  - устанавливаем размер шрифта через сервис fonts.google.com
+  (копируем ссылку на севисе fonts.google.com и подключаем ее в html файле
+  а название и свойство шрифта подключаем в файле style.css в body (font-family: 'Inter',
+  sans-serif;))*/
+  body{
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+
+    /* Потому что body это родитель для footer.footer */
+    /* position: relative; */
+    
+    /*Отступ справа и слева  */
+    margin: 0 10px; 
+  }
+
+/* Обращаемся к тегам ФОРМ и просим их наследовать семейство шрифта 
+(так как поумолчанию они этого не делают)*/
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+/* Теги которые убирают некоторые особенности в разных браузерах */
+input::-ms-clear {
+  display: none;
+}
+/* Указатель курсора в форме пальца руки */
+button {
+  cursor: pointer;
+}
+button::-moz-focus-inner {
+  padding: 0px;
+  border: 0px;
+}
+a,
+a:visited {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+
+/* Выравнивает верхний край элемента и его потомков с верхним краем всей строки */
+ul li {
+  vertical-align: top;
+}
+/* обнуляем заголовки h */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400px;
+} 
+
+.container {
+  /* Добавим 20рх с учетом padding: 0 10px; */
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 10px;
+  /* background-color: aqua; */
+}
+
+
+
+/* I ПЕРВЫЙ блок Тег header с классом "header"  */
+.header__inner {
+  /* Выровнять элементы контейнера по горизонтальной оси по центру */
+  display: flex;
+  /* Расставить элементы контейнера справа и слева */
+  justify-content: space-between;
+  /* Выровнять элементы контейнера по вертикальной оси по центру */
+  align-items: center;
+  margin: 0 auto;
+}
+
+.menu {
+  margin-right: 70px;
+}
+
+ul {
+  margin: 0;
+  list-style: none;
+}
+
+.menu__list {
+  display: flex;
+  align-items: center;
+  
+}
+
+/* Адаптив для img */
+.logo__img{
+  width: 100%;
+}
+
+.menu__link {
+  text-transform: uppercase;
+  padding: 42px 80px;
+  transition: all 1s;
+  max-width: 100px;
+}
+
+.menu__link:hover {
+  background-color: #131313;
+  color: #fff;
+}
+
+a{
+  /* Ссылка наследует цвет своего родителя
+  Если для элемента не задан цвет */
+  color: inherit;
+}
+  
+/* Элементы списка 
+  .menu__item{
+определяем стили для (.menu__item) который является 
+соседним элементом (.menu__item) 
+Если определить (.menu__item + .menu__item) это значит мы обращаемся ко всем элементам (.menu__item) кроме первого элемента*/
+  .menu__item{
+    padding-left: 10px;
+    padding-right: 10px; 
+  }
+
+  .header {
+    background: #c0d4d5; 
+  }
+
+
+  /* II ВТОРОЙ блок Тег <section> с классом "iphone" */
+  
+  .iphone,
+  .info,
+  .characteristics,
+  .slider {
+    background-color: #bac2c2;
+  }
+  
+  
+  
+  .iphone{
+    padding: 100px 0 0px;
+  }
+
+  .iphone__inner{
+    display: flex;
+    justify-content: space-between;
+  }
+
+/* Адаптив для img */
+.iphone-slider__item{
+  width: 100%  
+}
+
+.iphone__colum-slider{
+  /* ---------------------------- */
+  flex-basis: 630px; 
+  margin-left: 30px;
+  max-width: 630px;
+}
+
+.iphone__title{
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 77px;
+  color: #131313;
+  margin: 60px 0 5px;
+}
+
+.iphone__subtitle{
+  margin: 0 0 60px;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 39px;
+  color: #6f6f6f;
+}
+
+.iphone__text{
+  max-width: 420px;
+  margin-bottom: 20px; 
+}
+
+.iphone__link{
+  margin-top: 80px;
+  /* потому что по умолчанию ссылки СТРОЧНЫЕ
+  И чтобы применялись margin и padding определим display: inline-block;*/
+  display: inline-block;
+  background-color: #131313;
+  color: #fff;
+  padding: 28px 71px 28px 81px;
+  text-transform: uppercase;
+  /* Копирую из Figma */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  /* spacing это растояние между буквами */
+  letter-spacing: 1.1em;
+  transition: all .3s;
+}
+
+.iphone__link:hover {
+  background-color: #FF4040;
+}
+
+.iphone-slider .slick-dots{
+  right: 0;
+  top: 50px;
+}
+/* "slick-dots" копируем из "посмотреть код" */
+.slick-dots{
+  position: absolute;
+  top: 0;
+}
+.slick-dots li + li {
+  padding-top: 10px;
+}
+
+.slick-dots button {
+  font-size: 0;
+  padding: 0;
+  bottom: none;
+  background-color: #131313;
+  width: 6px;
+  height: 25px;
+  border-radius: 7px;
+}
+
+.slick-dots button:hover {
+  background-color: #ff4040;
+}
+
+.slick-active button {
+  background-color: #ff4040;
+}
+
+.iphone__list{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 25px;
+}
+
+.iphone__list-item{
+  min-width: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  /* min-width: 58px; */
+}
+
+.iphone__list-nam{
+  font-weight: 700;
+  text-transform: uppercase;
+  /* text-align: center; */
+}
+
+.iphone__list-text {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  margin: auto 0;
+}
+
+
+
+
+/* III ТРЕТИЙ блок Тег <section> с классом "info" */
+.info {
+  padding: 100px 0 0px;
+}
+
+.info__inner {
+  display: flex;
+}
+
+.info-img {
+  margin-right: 60px;
+  flex-basis: 570px;
+}
+
+.info__list {
+  flex-basis: 490px;
+}
+
+.info__item + .info__item {
+  padding-top: 50px;
+}
+
+
+
+/* IV ЧЕТВЕРТЫЙ блок Тег <section> с классом "characteristics"  */
+.characteristics {
+  padding-top: 100px;
+  /* margin-bottom: 150px; */
+}
+
+.characteristics__title-head {
+  margin: 0 0 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.characteristics__list {
+  margin: 0 0 33px;
+}
+/* Разделим блок с калссом  "characteristics__inner" на две части при помощи свойства display: flex; */
+.characteristics__inner {
+  display: flex; 
+}
+
+/* Выравниваем и уменьшаем картинку (чтобы она не была растянутой) */
+.characteristics__img {
+  align-self: center;
+}
+
+/* свойство flex-basis устанавливает ширину или высоту элемента (взависимости от того как проходит главная ось - ГОРИЗОНТАЛЬНО или ВЕРТИКАЛЬНО. Но если флекс-контейнер уменьшается то и ширина или высота Флекс-элемента также будет уменьшаться*/
+.characteristics__items {
+  flex-basis: 570px;
+  margin-right: 60px;
+}
+
+/* Установим padding  30px свррху у всех элементов characteristics__list (кроме первого)*/
+.characteristics__list + .characteristics__list {
+  padding-top: 30px;
+}
+
+/* Стилизируем заголовки characteristics__title (на черном фоне, белые буквы*/
+.characteristics__title {
+  padding: 2px 0 3px;
+  text-transform: uppercase;
+  /* черный фон */
+  background-color: #131313;
+  /* белые буквы */
+  color: #fff;
+  font-weight: 700;
+}
+
+/* Разделим флекс-элементы (characteristics__name и characteristics__descr) внутри флекс-контейнера (characteristics__line) на две колонки*/
+.characteristics__line {
+  display: flex;
+  padding-top: 5px;
+}
+
+/* Установим ширину флекс-элемента (characteristics__name) 285рх*/
+.characteristics__name {
+  flex-basis: 285px;
+  /* Чтобы флекс элементы characteristics__name и  characteristics__descr не прикасались друг к другу УСТАНОВИМ padding-right: 25px;  */
+  padding-right: 25px;
+}
+
+/* Установим ширину флекс-элемента (characteristics__descr) 285рх*/
+.characteristics__descr {
+  flex-basis: 285px;
+}
+
+
+
+
+
+/* V ПЯТЫЙ блок Тег <div> с классом "slider" */
+.slider {
+  margin-bottom: 50px;
+}
+
+.slider__items .slick-dots {
+  top: 0px;
+  left: 0px;
+
+}
+
+.slider__item {
+  padding-left: 280px;
+}
+
+
+
+
+/* VI ШЕСТОЙ блок Тег <section> с классом "prise"  */
+.price {
+  /* margin-bottom: 100px; */
+  padding-bottom: 200px;
+}
+
+/* -------------------------------------------------------------------------------------------------------- */
+/* (prise__inner) является родителем для (form__iphone)
+Чтобы управлять позиционированием (position: absolute;) для ЭЛЕМЕНТА с классом .form__iphone (см. ниже) ЕГО РОДИТЕЛЮ (т.е. prise__inner) нужно указать свойство (position: relative;)*/
+.price__inner {
+  position: relative;   
+}
+
+.form {
+  max-width: 420px;
+}
+
+.form__titl {
+  margin-bottom: 40px;
+  /* Параметры селектора (свойства и значения) копируем из макета в FIGMA */
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 22px;
+  text-transform: uppercase;
+}
+
+.form__text {
+  max-width: 300px;
+  margin-bottom: 40px;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+
+.form__input-name,
+.form__input-phone-phone {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #131313;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  /* outline: none; */
+} 
+
+/* Обращаемся к placeholder Указываем цвет и прозрачность */
+.form__input-name::placeholder,
+.form__input-phone-phone::placeholder {
+  opacity: 0.5;
+  color: #6F6F6F;
+} 
+
+.form__input-text {
+  margin-bottom: 10px;
+  opacity: 0.5;
+  color: #6F6F6F;
+}
+
+/* Чтобы радиокнопки выровнять горизонтально */
+.form__label-box {
+  display: flex;
+  /* в файле media.css Увеличим растояние margin-bottom: до 300 px чтобы поместить туда велосипед */
+  margin-bottom: 50px;
+}
+
+.form__label + .form__label {
+  margin-left: 23px;
+  margin-bottom: 50px;
+}
+
+/* Скрываем радио-кнопки */
+.form__input-radio {
+  position: absolute;
+  width: 1px;
+  height: 1px; 
+  /* Скрываем содержимое блочного элемента если оно не помещается в размеры блока (чтобы не выходил за пределы 1 Х 1  */
+  overflow: hidden; 
+   /*Чтобы нельзя было взаимодействовать с элементом (делаем область взаимодействия 0 (т.е. отсутствующей)*/
+  clip: rect(0 0 0 0); 
+}
+
+
+/* УСТАНОВИМ если form__input-radio с атрибутом  checked (это значит выбрано,проверено) то тогда его соседнему элементу с классом .form__bike будут присвоены параметры display:block  (вместо display:none)  */
+.form__input-radio:checked + .form__iphone {
+  display: block;
+}
+
+/* Стилизируем ЦЕНУ в РАМКЕ (.form__iphone-price)  */
+.form__iphone-price {
+
+font-size: 32px;
+line-height: 100px;
+/* ----------------------------------------- */
+/* ПОЗИЦИОНИРОВАНИЕ */
+position: absolute;
+top: 30px;
+left: 0;
+right: 0;
+width: 220px;
+height: 100px;
+
+display: flex;
+justify-content: center;
+align-items: center;
+/* Создаем рамку в виде прямоугольника */
+border: 1px solid #ff4040;
+/* Создаем рамку в виде ОВАЛА */
+border-radius: 50%;
+/* Размещаем овал по ЦЕНТРУ */
+transform:translateX(-50%);
+}
+
+/* Создаем ДОПОЛНИТЕЛЬНУЮ рамку в виде ОВАЛА */
+.form__iphone-price::after {
+  content: "";
+ /* ПОЗИЦИОНИРОВАНИЕ */
+ position: absolute;
+ top: 12px;
+ left: 0;
+ right: 0;
+ width: 220px;
+ height: 100px;
+ /* Создаем рамку в виде прямоугольника */
+ border: 1px solid #ff4040;
+ /* Создаем рамку в виде ОВАЛА */
+ border-radius: 50%;
+ }
+
+/* ------------------------------------------------------------------- */
+.form__iphone {
+  /* Блок с картинками (велосипеды) и текстом СКРЫВАЕМ */
+  display: none;
+  /* При СВОЙСТВЕ (position:) и ЗНАЧЕНИИ (absolute) блок "вырывается" из HTML кода и зависает СВЕРХУ СЛЕВА относительно ОКНА БРАУЗЕРА (а его место расположения освобождается)
+  Чтобы управлять данным блоком ОТНОСИТЕЛЬНО РОДИТЕЛЯ (т.е. prise__inner) РОДИТЕЛЮ нужно указать параметр (position: relative;) (см. код выше) */
+  position: absolute; 
+/* -------------------------------------------------------------- 1:26 мин */
+  /* Для position: absolute; ОБЯЗАТЕЛЬНО нужно указать свойства позиционирования (НАПРИМЕР если мы хотим разместить КАРТИНКУ С ВЕЛОСИПЕДОМ сверху справа то укажем ПАРАМЕТРЫ top: 0; right: 0;  */
+  top: 0;
+  right: 0;
+}
+
+.form__iphone-img {
+  max-width: 500px;
+}
+
+.form__radio-style {
+  border-radius: 30px;      
+  width: 80px;
+  height: 12px;
+  flex-shrink: 0;
+}
+
+.form__radio-style--grey {
+  background:  #6F6F6F;
+}
+
+.form__radio-style--white {
+  border: 1px solid  #6F6F6F;
+  background: #FFF;
+}
+
+.form__radio-style--red {
+  background: #FF4040; 
+}
+
+.form__btn {
+padding: 28px 71px 28px 81px;
+
+max-width: 420px;
+max-height: 80px;
+flex-shrink: 0;
+background: #131313;
+
+color: #FFF;
+font-family: Inter;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+letter-spacing: 22px;
+text-transform: uppercase;
+
+/* Замедление 3 секунды */
+transition: all .3s;
+}
+
+/* ПСЕВДОКЛАС При наведении цвет поменяется на красный */
+.form__btn:hover {
+  background-color: #FF4040;
+}
+
+
+.footer {
+  background-color: #131313;
+  max-height: 95px;
+  
+  /* ФИКСИРУЕМ footer (Для родителя footer (т.е. для body нужно указать position:relative)   */
+  /* position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;  */
+}
+
+.footer__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100pt;
+}
+
+.footer__link {
+  color: #FFF;
+  text-decoration: underline;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.footer__social-link + .footer__social-link {
+  margin-left: 26px;
+}
+
+.footer__contacts {
+  color: #fff;
+  font-size: 12px;
+  line-height: normal; 
+}
+
+/* Расположим строчные дочерние элементы ВЕРТИКАЛЬНО */
+.footer__contacts-link {
+  display: flex;
+  align-items: center;
+}
+
+/* Отступ сверху для второго элемента */
+.footer__contacts-link + .footer__contacts-link {
+  margin-top: 10px;
+}
+
+.footer__contacts-img {
+  margin-right: 10px;
+}
+

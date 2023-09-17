@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <!--АДАПТИВ (уменьшение масштаба в зависимости от ширины экрана девайса) -->
+  <!-- Этот Мета - тег viewport означает что ширина контента равна ширине девайса  -->
+  <!-- Значение 1.0 определяет масштаб 1:1, т.е. «не масштабировать». -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iPhone</title>
+
+  <!-- Подключаем normalize.css САМЫМ ПЕРВЫМ -->
+  <link rel="stylesheet" href="css/normalize.css">
+
+  <!-- Подключаем шрифты через fonts.google.com -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <!-- ПОДКЛЮЧАЕМ slick - слайдер (1:40 мин. ролика)
+    Скачиваем соответствующие файлы ПЛАГИНА slick-слайдер в папки CSS и JS нашего проекта
+    Для CSS скачиваем файл slick.css (а чтобы подключить и стили
+    можно скачать и файл slick-theme.css Мы этого пока делать не будем)
+    и подключаем этот файл СSS ЗДЕСЬ над <link rel="stylesheet" href="css/style.css">
+    
+  - На сайте slick Переходим во вкладку get it now и нажимаем Cкачать сейчас (Dowload Now)
+  - Внутри архива есть папка slick - В ней файл slick.CSS - Копируем его 
+  и вставляем в нашу ПАПКУ (в проекте) CSS
+  slick.min.js вставляем в нашу ПАПКУ (в проекте) JS
+
+  На платформе slick-слайдер ВКЛАДКА settings arrows (стрелки)-->
+  <link rel="stylesheet" href="css/slick.css">
+  <!-- Подключаем стили -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Подключаем медиазапрос для адаптива под файлом "css/style.css" (потому что файл "css/media.css" должен быть более приоритетным )  -->
+  <link rel="stylesheet" href="css/media.css">
+
+  <!-- fav icon -->
+  <link rel="shortcut icon" href="images/icons-iphone.png">
+</head>
+
+<body>
+   
+  <!-- I ПЕРВЫЙ блок Тег header с классом "header" В нем ДВЕ колонки, расположенные внутри тега с классом "header__inner": 1)ЛОГОТИП-ссылка Тег <a> с классом "logo" и 2)МЕНЮ тег <nav> с классом "menu" Размещаем эти колонки ГОРИЗОНТАЛЬНО при помощи СВОЙСТВА CSS display: flex для селектора класса "header__inner"-->
+  <header class="header">
+    <!-- class="container" для того чтобы укзать ширину однородных блоков и контент выставить по центру -->
+    <div class="container">
+      <!-- class="header__inner" это общий родитель для ЛОГОТИПА и МЕНЮ-->
+      <div class="header__inner">
+        
+        <!-- ЛОГОТИП-ССЫЛКА -->
+        <a href="" class="logo">
+          <img src="images/iPh-Logo.jpg" alt="logo" class="logo__img">
+        </a>
+      
+        <!-- Тег <nav> используют для навигации по сайту (в семантике нужен для поисковых машин)-->
+        <nav class="menu">
+          <!-- Создаем меню ввиде списка -->
+          <ul class="menu__list">
+            <li class="menu__item">
+              
+              <!-- Чтобы при клике на кнопку "Описание" страница сайта переместилась в область тега section с классом  info определим для ссылки "а" ЯКОРЬ href="#info" (решетка# - это обращение к id  (см. III блок id="info"))-->
+              <a href="#info" class="menu__link">Описание</a>
+            </li>
+            <li class="menu__item">
+
+              <!-- Чтобы при клике на кнопку "Характеристики" страница сайта переместилась в область тега section с классом  characteristics определим для ссылки "а" ЯКОРЬ href="#characteristics" (решетка# - это обращение к id (см. IV блок id="characteristics"))-->
+              <a href="#characteristics" class="menu__link">Характеристики</a>
+            </li>
+            <li class="menu__item">
+              
+             <!-- Чтобы при клике на кнопку "Стоимость" страница сайта переместилась в область тега section с классом  price определим для ссылки "а" ЯКОРЬ href="#price" (решетка# - это обращение к id (см. VI блок id="price") )--> 
+              <a href="#price" class="menu__link">Цена</a>
+            </li>
+          </ul>
+        </nav>
+
+      </div>
+    </div>
+  </header>
+
+
+  <!-- II ВТОРОЙ блок Тег <section> с классом "iphone" В нем ДВЕ колонки, расположенные внутри тега с классом "iphone__inner": 1)ТЕКСТ и КНОПКА-ССЫЛКА и 2)СЛАЙДЕР с класссом "iphone__colum iphone__colum-slider" Размещаем эти колонки ГОРИЗОНТАЛЬНО при помощи СВОЙСТВА CSS display: flex для селектора класса "bike__inner"-->
+  
+    <section class="iphone">
+      <!-- Контейнер внутри ТЕГА section с классом  "iphone"
+      для ТЕКСТА, КНОПКИ и СЛАЙДЕРА -->
+      <div class="container">
+        <div class="iphone__inner">
+          <!-- КОЛОНКА с описанием и кнопкой "ЗАКАЗАТЬ" -->
+          <!-- ОПИСАНИЕ -->
+          <div class="iphone__colum">
+            <h1 class="iphone__title">
+              Apple iPhone 12
+            </h1>
+            <h3 class="iphone__subtitle">
+              Смартфон
+            </h3>
+            <p class="iphone__text">
+              Apple iPhone 12 — это один из самых мощных смартфонов 2020 года. Внутри у него находится самое передовое «железо», в то же время его дизайн оценят и те, кто переходит с предыдущих версий, и любители классических iPhone 4 и iPhone 5.
+            </p>
+            <p class="iphone__text">
+              Apple iPhone 12 заключен в корпус из алюминия с плоскими боковыми гранями. Всю переднюю панель занимает прекрасный 6,1-дюймовый OLED-дисплей с технологией Super Retina XDR. В этом смартфоне впервые представлена совершенно новая технология покрытия — Ceramic Shield. Это стекло с нановкраплениями прозрачной керамики, которые делают его невероятно прочным. Теперь вы можете не бояться уронить смартфон — вероятность разбить экран при падении теперь меньше в 4 раза.
+            </p>
+              
+              <!-- кнопка "ЗАКАЗАТЬ" -->
+              <!-- Чтобы при клике на кнопку ЗАКАЗАТЬ страница сайта переместилась в область  PRICE пропишем href="#price" (решетка# - это обращение к id)-->
+            <a class="iphone__link" href="#price">ЗАКАЗАТЬ</a>
+          </div>
+  
+          <!-- КОЛОНКА со СЛАЙДЕРОМ и ИНФОРМАЦИЕЙ-->
+          <div class="iphone__colum iphone__colum-slider">
+            <!-- СЛАЙДЕР -->
+            <div class="iphone-slider">
+              <img class="iphone-slider__item" src="images/iPh-slider-1.jpg" alt="iphone">
+              <img class="iphone-slider__item" src="images/iPh-slider-2.jpg" alt="">
+              <img class="iphonee-slider__item" src="images/iPh-slider-3.jpg" alt="">
+              <img class="iphone-slider__item" src="images/iPh-slider-4.jpg" alt="">
+            </div>
+            <!-- ИНФОРМАЦИЯ -->
+            <ul class="iphone__list">
+              <li class="iphone__list-item">
+                <span class="iphone__list-nam">Диагональ экрана</span>
+                <span class="iphone__list-text">6.1</span>
+              </li>
+              <li class="iphone__list-item">
+                <span class="iphone__list-nam">Разрешение экрана</span>
+                <span class="iphone__list-text">2532 x 1170</span>
+              </li>
+              <li class="iphone__list-item">
+                <span class="iphone__list-nam">Операционная система</span>
+                <span class="iphone__list-text">iOS 14</span>
+              </li>
+              <li class="iphone__list-item">
+                <span class="iphone__list-nam">25 кг</span>
+                <span class="iphone__list-text">вес</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+  
+  
+  
+    <!-- III ТРЕТИЙ блок Тег <section> с классом "info" В нем ДВЕ колонки, расположенные внутри тега с классом "info__inner": 1)КАРТИНКА и 2)ОПИСАНИЕ с класссом "info__inner" Размещаем эти колонки ГОРИЗОНТАЛЬНО при помощи СВОЙСТВА CSS display: flex для селектора класса "info__list"-->
+  
+  
+    <!-- Для того чтобы при клике на конпку ОПИСАНИЕ (см. HEADER) страница сайта переместилась на III ТРЕТИЙ блок Создаем id="info" для тега section с классом class="info" (т.е. создаем ЯКОРЬ)  -->
+    <section class="info" id="info">
+      <!-- Контейнер  для ТЕГА section с КЛАССОМ "info"
+      для КАРТИНКИ и ОПИСАНИЯ-->
+      <div class="container">
+        <div class="info__inner">
+          <!-- КАРТИНКА -->
+          <img class="info-img" src="images/info-img.jpg" alt="">
+          <!-- ОПИСАНИЕ -->
+          <div class="info__list">
+            <div class="info__item">
+              <h4 class="info__item-title">
+                Потрясающе быстрый
+              </h4>
+              <p class="info__item-text">
+                Работает Apple iPhone 12 на мощнейшем чипе нового поколения A14 Bionic. Общая производительность смартфона по сравнению с предыдущей моделью выросла на 40%. 4-ядерный графический ускоритель стал на 30% мощнее, а улучшенный 16-ядерный нейропроцессор Neural Engine работает в 10 раз быстрее своего предшественника. 
+              </p>
+            </div>
+  
+            <div class="info__item">
+              <h4 class="info__item-title">
+                Заменяет киностудию
+              </h4>
+              <p class="info__item-text">
+                iPhone 12 получил две камеры: широкоугольную и сверхширокоугольную. Прекрасные камеры Apple в этом году получили апгрейд за счет совершенствования технологий обработки изображений. Теперь ночной режим поддерживается для обоих модулей. Это значит, что снимки, сделанные при недостаточном освещении, станут более детализированными и четкими. Кроме того, в ночном режиме теперь можно снимать таймлапс. Видео новый смартфон может снимать в режиме HDR 4K в стандарте Dolby Vision, это абсолютный рекорд не только среди камер смартфонов, но и среди многих профессиональных видеокамер.
+              </p>
+            </div>
+  
+            <div class="info__item">
+              <h4 class="info__item-title">
+                Инновационно красив
+              </h4>
+              <p class="info__item-text">
+                Apple iPhone 12 поставляется в 5 цветах: стандартных белом и черном, специальном PRODUCT(RED), доходы с продаж которого направляются в фонд борьбы с COVID-19, зелёном и в новом цвете 2020 года — синем. Корпус телефона защищен от влаги по стандарту IP68, такая защита позволит вам плавать, не вынимая телефон из кармана. 
+              </p>
+            </div>
+  
+            <div class="info__item">
+              <h4 class="info__item-title">
+                Надежный и быстрый Интернет
+              </h4>
+              <p class="info__item-text">
+                Это первый смартфон компании с поддержкой сетей 5G, что гарантирует самое быстрое интернет-соединение при условии, что у вас есть доступ к сетям 5-го поколения.
+              </p>
+            </div>
+  
+            <div class="info__item">
+              <h4 class="info__item-title">
+                Удобная зарядка
+              </h4>
+              <p class="info__item-text">
+                На задней панели корпуса теперь находится магнитное крепление, благодаря которому iPhone удобно класть на беспроводную зарядку, а, при желании, на заднюю панель вы сможете «приклеить» специальные чехлы и карманы для карт, которые в этом году также впервые анонсировал производитель.
+              </p>
+            </div>
+  
+            <div class="info__item">
+              <h4 class="info__item-title">
+                Низкое энергопотребление
+              </h4>
+              <p class="info__item-text">
+                Энергопотребление нового процессора сократилось. Любые приложения, любые операции этот смартфон выполнит без малейшей задержки. В iPhone 12 стало возможно выполнять сложнейшие алгоритмы обработки и машинного обучения: лучше всего это заметно в невероятных возможностях его камер.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+  
+  
+  
+    <!-- IV ЧЕТВЕРТЫЙ блок Тег <section> с классом "characteristics" В нем ДВЕ колонки, расположенные внутри тега с классом "characteristics__inner": 1)ОПИСАНИЕ с класссом "characteristics__items" и 2) КАРТИНКА с класссом "characteristics__img". Размещаем эти колонки ГОРИЗОНТАЛЬНО при помощи СВОЙСТВА CSS display: flex для селектора класса "characteristics__inner"-->
+  
+    <!-- Для того чтобы при клике на конпку ХАРАКТЕРИСТИ (см. HEADER) страница сайта переместилась на IV ЧЕТВЕРТЫЙ блок Создаем id="characteristics" для тега section с классом class="characteristics" (т.е. создаем ЯКОРЬ)  -->
+    <section class="characteristics" id="characteristics">
+      <div class="container">
+        <h4 class="characteristics__title-head">
+          Характеристики
+        </h4>
+        
+        <div class="characteristics__inner">
+  
+          <div class="characteristics__items">
+            <ul class="characteristics__list">
+              <li class="characteristics__title">
+                Камера
+              </li>
+              <li class="characteristics__line">
+                <p class="characteristics__name">Разрешение основной камеры</p>
+                <p class="characteristics__descr">12 Мп</p>
+              </li>
+              <li class="characteristics__line">
+                <p class="characteristics__name">Разрешение второй основной камеры</p>
+                <p class="characteristics__descr">12 Мп</p>
+              </li>
+              <li class="characteristics__line">
+                <p class="characteristics__name">Диафрагма основной камеры</p>
+                <p class="characteristics__descr">F/1.6</p>
+              </li>
+              <li class="characteristics__line">
+                <p class="characteristics__name">Диафрагма второй камеры</p>
+                <p class="characteristics__descr">F/2.4</p>
+              </li>
+            </ul>
+            
+            <ul class="characteristics__list">
+              <li class="characteristics__title">
+                Мультимедиа
+              </li>
+              <li class="characteristics__line">
+                <p class="characteristics__name">Мультимедийные возможности</p>
+                <p class="characteristics__descr">Аудиоплеер, Видеоплеер</p>
+              </li>
+              <li class="characteristics__line">
+                <p class="characteristics__name">Поддержка видео форматов</p>
+                <p class="characteristics__descr">H.264, HEVC, Motion JPEG, MPEG‑4 Part 2</p>
+              </li>
+            </ul>
+  
+            <ul class="characteristics__list">
+              <li class="characteristics__title">
+                Датчики
+              </li>
+              <li class="characteristics__line">
+                <p class="characteristics__name">Основные датчики</p>
+                <p class="characteristics__descr">Датчик ориентации дисплея, Датчик освещённости, Датчик приближения</p>
+              </li>
+              <li class="characteristics__line">
+                <p class="characteristics__name">Дополнительные датчики</p>
+                <p class="characteristics__descr">Акселерометр, Барометр, Трехосевой гироскоп, Функция распознавания по лицу</p>
+              </li>
+            </ul>
+  
+            <ul class="characteristics__list">
+              <li class="characteristics__title">
+                Связь
+              </li>
+              <li class="characteristics__line">
+                <p class="characteristics__name">Стандарты сотовой связи</p>
+                <p class="characteristics__descr">2G, 3G, 4G LTE, GSM</p>
+              </li>
+              <li class="characteristics__line">
+                <p class="characteristics__name">Диапазоны GSM</p>
+                <p class="characteristics__descr">	1800, 1900, 850, 900</p>
+              </li>
+              <li class="characteristics__line">
+                <p class="characteristics__name">Диапазоны 3G (UMTS)</p>
+                <p class="characteristics__descr">1700/2100, 1900, 2100, 850, 900</p>
+              </li>
+              <li class="characteristics__line">
+                <p class="characteristics__name">Диапазоны LTE</p>
+                <p class="characteristics__descr">FDD‑LTE 1, 2, 3, 4, 5, 7, 8, 12, 13, 17, 18, 19, 20, 25, 26, 28, 30, 32, 66. TD‑LTE 34, 38, 39, 40, 41, 42, 46, 48</p>
+              </li>
+              <li class="characteristics__line">
+                <p class="characteristics__name">Интернет</p>
+                <p class="characteristics__descr">4G LTE, DC-HSDPA, EDGE, GPRS, HSPA+, UMTS</p>
+              </li>
+            </ul>
+  
+            <ul class="characteristics__list">
+              <li class="characteristics__title">
+                Соединение
+              </li>
+              <li class="characteristics__line">
+                <p class="characteristics__name">Беспроводное соединение</p>
+                <p class="characteristics__descr">Bluetooth, NFC, Wi-Fi</p>
+              </li>
+              <li class="characteristics__line">
+                <p class="characteristics__name">Wi-Fi</p>
+                <p class="characteristics__descr">	ax, MIMO</p>
+              </li>
+              <li class="characteristics__line">
+                <p class="characteristics__name">Bluetooth</p>
+                <p class="characteristics__descr">5.0</p>
+              </li>
+            </ul>
+  
+            <ul class="characteristics__list">
+              <li class="characteristics__title">
+                Корпус
+              </li>
+              <li class="characteristics__line">
+                <p class="characteristics__name">Материал</p>
+                <p class="characteristics__descr">Алюминий, Керамика, Стекло</p>
+              </li>
+              <li class="characteristics__line">
+                <p class="characteristics__name">Стандарт защиты</p>
+                <p class="characteristics__descr">IP68</p>
+              </li>
+            </ul>
+          </div>
+          
+          <img src="images/characteristics-img.jpg" alt="" class="characteristics__img">  
+        </div>
+      </div>
+    </section>
+  
+  
+  
+  
+    <!-- V ПЯТЫЙ блок Тег <div> с классом "slider"-->
+    <div class="slider">
+      <div class="container">
+        <div class="slider__items">
+          <div class="slider__item">
+            <img src="images/slider-1.jpg" alt="" class="slider__img">
+          </div>
+          <div class="slider__item">
+            <img src="images/slider-2.jpg" alt="" class="slider__img">
+          </div>
+          <div class="slider__item">
+            <img src="images/slider-3.jpg" alt="" class="slider__img">
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  
+  
+  
+    <!-- VI ШЕСТОЙ блок Тег <section> с классом "prise" РАЗДЕЛИМ на ДВЕ колонки-->
+      <!-- Для того чтобы при клике на конпку СТОИМОСТЬ (см. HEADER) страница сайта переместилась на VI ШЕСТОЙ блок Создаем id="prise" для тега section с классом class="price" (т.е. создаем ЯКОРЬ)  -->
+    <section class="price" id="price">
+      <div class="container">
+        <div class="price__inner">
+          <!-- ФОРМЫ -->
+          <form action="" class="form">
+            <h4 class="form__titl">
+              Заказать
+            </h4>
+            <p class="form__text">
+              Если Вы хотите заказать смартфон, оставьте свой контакт и наш менеджер перезвонит вам в ближайшее время
+            </p>
+            <!-- Формы для ввода данных "form__input-name" и  "form__input-phone-phone"-->
+            <input class="form__input-name" type="text" placeholder="имя">
+            <input class="form__input-phone-phone" type="tel" placeholder="телефон">
+            <p class="form__input-text">
+              выберите желаемый цвет
+            </p>
+            <!-- Кнопки выбора цвета (создаем РАДИО-КНОПКИ) -->
+            <!-- Создаем тег DIV с классом form__lable-box внутри которого ТРИ тега (LABEL с классом form__lable) 
+            <div class="form__label-box"> явлется ФЛЕКС-КОНТЕЙНЕРОМ для ТРОИХ ЭЛЕМЕНТОВ <label class="form__label">-->
+            <div class="form__label-box">
+              
+              <!-- Создаем ТРИ кнопки -->
+              <label class="form__label">
+                <!-- Кнопку нужно будет скрыть (потому что мы не сможем ее застилить) Вместо этой кнопки будут КНОПКИ переключения слайдера -->
+                <!-- Определим (name="radio") чтобы при выборе одной кнопки выбор предыдущей анулировался -->
+                <input type="radio" class="form__input-radio" name="radio">
+                
+                <!--div с картинкой и текстом  -->
+                <div class="form__iphone">
+                  <!-- КАРТИНКА -->
+                  <img src="images/iphone-grey.jpg" alt="" class="form__iphone-img">
+                  <!-- ТЕКСТ указывает цену -->
+                  <p class="form__iphone-price"><span>23999 грн.</span></p>
+                </div>
+                
+                <!-- Блок вместо радио-кнопки -->
+                <div class="form__radio-style form__radio-style--grey"></div>
+              </label>
+  
+              <label class="form__label">
+                <!-- Кнопку нужно будет скрыть (потому что мы не сможем ее застилить) Вместо этой кнопки будут КНОПКИ переключения слайдера -->
+                <!-- Определим (name="radio") чтобы при выборе одной кнопки выбор предыдущей анулировался -->
+                
+                <!-- Чтобы по умолчанию состояние кнопки было в режиме ВКЛЮЧЕНО установим для этой кнопки атрибут checked-->
+                <input type="radio" class="form__input-radio" name="radio" checked>
+                <div class="form__iphone">
+                  <img src="images/iphone-white.jpg" alt="" class="form__iphone-img">
+                  <p class="form__iphone-price"><span>22999 грн.</span></p>
+                </div>
+                <!-- Блок вместо радио-кнопки -->
+                <div class="form__radio-style form__radio-style--white"></div>
+              </label>
+  
+              <label class="form__label">
+                <!-- Кнопку нужно будет скрыть (потому что мы не сможем ее застилить) Вместо этой кнопки будут КНОПКИ переключения слайдера -->
+                <!-- Определим (name="radio") чтобы при выборе одной кнопки выбор предыдущей анулировался -->
+                <input type="radio" class="form__input-radio" name="radio">
+                
+                    <!-- ------------------------------------ -->
+                <!-- Велосипед с ценой в овале -->
+                <div class="form__iphone">
+                  <img src="images/iphone-red.jpg" alt="" class="form__iphone-img">
+                  <p class="form__iphone-price"><span>24999 грн.</span></p>
+                </div>
+
+
+                <!-- Блок вместо радио-кнопки -->
+                <div class="form__radio-style form__radio-style--red"></div>
+              </label>
+            </div>
+  
+              <!-- Кнопка ЗАКАЗАТЬ -->
+            <button class="form__btn" type="submit">ЗАКАЗАТЬ</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  
+  
+  
+  
+    <!-- VII CEДЬМОЙ блок Тег footer с классом class="footer" состоит из трех колонок ССЫЛКА (Политика конфиденциальности), ССЫЛКИ на социальные сети (<div class="footer__social">), контакты (<div class="footer__contacts">)   -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__inner">
+          
+          <a href="" class="footer__link">Политика конфиденциальности</a>
+         
+          <div class="footer__social">
+            <a class="footer__social-link" href="#">
+              <img class="footer__social-img" src="images/instagram.svg" alt="">
+            </a>
+            <a class="footer__social-link" href="#">
+              <img class="footer__social-img" src="images/facebook.svg" alt="">
+            </a>
+          </div>
+         
+          <div class="footer__contacts">
+            <a class="footer__contacts-link" href="tel:+38 050 677 77 77">
+              <img class="footer__contacts-img" src="images/phone.svg" alt="">
+              <span>+38 050 677 7777</span>
+            </a>
+            <a class="footer__contacts-link" href="mailto:MyiPhone@gmail@gmail.com">
+              <img class="footer__contacts-img" src="images/mail.svg" alt="">
+              <span>MyiPhone@gmail.com</span>
+            </a>
+          </div>
+  
+        </div>
+      </div>
+    </footer>
+
+
+  <!-- Подключаем jquery через Интернет по ссылке-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+  <!-- Скачиваем соответствующие файлы ПЛАГИНА slich-слайдер в папки CSS и JS
+    Для JS скачиваем файл slich.min.js
+    и подключаем файл JS ЗДЕСЬ: 
+    ПОСЛЕ 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    И ПЕРЕД
+    <script src="js/main.js"></script> -->
+
+  <script src="js/slick.min.js"></script>
+    <!-- Подключаем СКРИПТЫ js с помощью файла main.js -->
+  <script src="js/main.js"></script>
+</body>
+</html>
