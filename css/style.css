@@ -352,7 +352,7 @@ a{
 .info-img {
   margin-right: 60px;
   flex-basis: 570px;
-  min-width: 100%;
+  max-width: 100%;
 }
 
 .info__list {
