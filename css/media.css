@@ -244,6 +244,7 @@
   .slider__item {
     padding-left: 130px;
   }
+
 }
 
 /* I Адаптируем ПЕРВЫЙ БЛОК (Тег header с классом "header") */
@@ -313,6 +314,8 @@
   /* Уменьшим размер картинки .form__bike-img */
   .form__iphone-img {
     max-width: 250px;
-}
+  }
 
 }
+
+
